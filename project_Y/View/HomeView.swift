@@ -9,6 +9,10 @@ import SwiftUI
 import UserNotifications
 
 struct HomeView: View {
+    
+    // Creating global object across evert view for helping with notification creation
+    @StateObject var notificationsHelper = NotificationsHelper()
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -29,21 +33,8 @@ struct HomeView: View {
                 }
             }
         }.onAppear {
-            requestPermisionForNotification()
-        }
-    }
-    
-    func requestPermisionForNotification() {
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound]) { granted, error in
-            
-            if let error = error {
-                // Handle the error here.
-                print(error)
-            }
-            
-            // Enable or disable features based on the authorization.
-        }
+            notificationsHelper.requestPermisionForNotification()
+        }.environmentObject(notificationsHelper) // Passing global object to navigation view
     }
 }
 

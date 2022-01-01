@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C30FA4B02780A1F5008F4F22 /* Color_extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30FA4AF2780A1F5008F4F22 /* Color_extensions.swift */; };
 		C311C7D0277B560E0040A699 /* ClassicReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C311C7CF277B560D0040A699 /* ClassicReminderView.swift */; };
 		C3136528277A200C00F64052 /* project_YApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3136527277A200C00F64052 /* project_YApp.swift */; };
 		C313652A277A200C00F64052 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3136529277A200C00F64052 /* HomeView.swift */; };
@@ -26,7 +27,7 @@
 		C3136565277A22D700F64052 /* Classic_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3136564277A22D700F64052 /* Classic_ViewModel.swift */; };
 		C3136568277A5A0C00F64052 /* RemindersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3136567277A5A0C00F64052 /* RemindersListView.swift */; };
 		C32BDB62277B5E1800B83AB2 /* UIApplication_extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32BDB61277B5E1800B83AB2 /* UIApplication_extensions.swift */; };
-		C32BDB65277DE3B700B83AB2 /* ReminderNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32BDB64277DE3B700B83AB2 /* ReminderNotifications.swift */; };
+		C32BDB65277DE3B700B83AB2 /* Notifications_helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32BDB64277DE3B700B83AB2 /* Notifications_helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C30FA4AF2780A1F5008F4F22 /* Color_extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color_extensions.swift; sourceTree = "<group>"; };
 		C311C7CF277B560D0040A699 /* ClassicReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicReminderView.swift; sourceTree = "<group>"; };
 		C3136524277A200C00F64052 /* project_Y.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project_Y.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3136527277A200C00F64052 /* project_YApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project_YApp.swift; sourceTree = "<group>"; };
@@ -94,7 +96,7 @@
 		C3136564277A22D700F64052 /* Classic_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classic_ViewModel.swift; sourceTree = "<group>"; };
 		C3136567277A5A0C00F64052 /* RemindersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListView.swift; sourceTree = "<group>"; };
 		C32BDB61277B5E1800B83AB2 /* UIApplication_extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication_extensions.swift; sourceTree = "<group>"; };
-		C32BDB64277DE3B700B83AB2 /* ReminderNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderNotifications.swift; sourceTree = "<group>"; };
+		C32BDB64277DE3B700B83AB2 /* Notifications_helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications_helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				C32BDB61277B5E1800B83AB2 /* UIApplication_extensions.swift */,
+				C30FA4AF2780A1F5008F4F22 /* Color_extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,7 +230,7 @@
 		C32BDB63277DE39B00B83AB2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C32BDB64277DE3B700B83AB2 /* ReminderNotifications.swift */,
+				C32BDB64277DE3B700B83AB2 /* Notifications_helper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -364,7 +367,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C313652A277A200C00F64052 /* HomeView.swift in Sources */,
-				C32BDB65277DE3B700B83AB2 /* ReminderNotifications.swift in Sources */,
+				C32BDB65277DE3B700B83AB2 /* Notifications_helper.swift in Sources */,
+				C30FA4B02780A1F5008F4F22 /* Color_extensions.swift in Sources */,
 				C311C7D0277B560E0040A699 /* ClassicReminderView.swift in Sources */,
 				C32BDB62277B5E1800B83AB2 /* UIApplication_extensions.swift in Sources */,
 				C3136528277A200C00F64052 /* project_YApp.swift in Sources */,
@@ -647,7 +651,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -678,7 +682,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

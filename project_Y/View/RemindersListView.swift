@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RemindersListView: View {
+    
+    
     var body: some View {
         ZStack {
             NavigationLink(destination: ClassicReminderView()) {
