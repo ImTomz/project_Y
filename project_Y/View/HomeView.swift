@@ -11,7 +11,7 @@ import UserNotifications
 struct HomeView: View {
     
     // Creating global object across evert view for helping with notification creation
-    @StateObject var notificationsHelper = NotificationsHelper()
+    @StateObject var notificationsManager = NotificationsManager()
     
     var body: some View {
         NavigationView {
@@ -33,11 +33,10 @@ struct HomeView: View {
                 }
             }
         }.onAppear {
-            notificationsHelper.requestPermisionForNotification()
-        }.environmentObject(notificationsHelper) // Passing global object to navigation view
+            notificationsManager.requestAuthorization { granted in }
+        }.environmentObject(notificationsManager) // Passing global object to navigation view
     }
 }
-
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

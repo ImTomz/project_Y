@@ -9,29 +9,35 @@ import UserNotifications
 import SwiftUI
 
 
-class NotificationsHelper: ObservableObject {
+class NotificationsManager: ObservableObject {
     
     let daysInWeek = ["S","M","T","W","T","F","S"]
+    @Published var settings: UNNotificationSettings?
     
     // Request permision for notification from user.
-    func requestPermisionForNotification() {
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound]) { granted, error in
-            
+    func requestAuthorization(completion: @escaping  (Bool) -> Void) {
+      UNUserNotificationCenter.current()
+        .requestAuthorization(options: [.alert, .sound]) { granted, error  in
             if let error = error {
                 // Handle the error here.
                 print(error)
             }
-            
-            if (!granted) {
-                print("Permision denied!")
-            }
-            // Enable or disable features based on the authorization.
+            self.fetchNotificationSettings()
+            completion(granted)
         }
     }
     
+    // Fetch notifications setting
+    func fetchNotificationSettings() {
+      UNUserNotificationCenter.current().getNotificationSettings { settings in
+        DispatchQueue.main.async {
+          self.settings = settings
+        }
+      }
+    }
+    
     // Schedule Notification with weekly bases.
-    func scheduleNotification(at date: Date, body: String, titles:String) {
+    func scheduleNotification(at date: Date, body: String, titles:String, id:UUID) {
 
         let triggerWeekly = Calendar.current.dateComponents([.weekday,.hour,.minute,.second], from: date)
 
@@ -43,7 +49,7 @@ class NotificationsHelper: ObservableObject {
         content.sound = UNNotificationSound.default
         content.categoryIdentifier = "reminder"
 
-        let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: id.uuidString, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request) {(error) in
             if let error = error {
@@ -79,9 +85,21 @@ class NotificationsHelper: ObservableObject {
         return formatedTime
     }
     
-    // TODO: Check for notifications permission
-    func checkNotificationsPermission() {
-        
+    // Remove notification request
+    func removeScheduledNotification(id: UUID) {
+      UNUserNotificationCenter.current()
+            .removePendingNotificationRequests(withIdentifiers: [id.uuidString])
+    }
+    
+    // Go to setting 
+    func goToSettings() {
+        guard let settingURL = URL(string: UIApplication.openSettingsURLString)
+        else {
+            return
+        }
+        if(UIApplication.shared.canOpenURL(settingURL)) {
+            UIApplication.shared.open(settingURL) { (_) in }
+        }
     }
 }
 
