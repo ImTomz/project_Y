@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ClassicViewModel {
+class ClassicReminderViewModel {
     
     var label: String;
     var identifier: UUID;
@@ -17,7 +17,7 @@ class ClassicViewModel {
         self.identifier = identifier;
     }
     
-    init(classic_reminder: Reminder_Classic) {
+    init(classic_reminder: ClassicReminder) {
         self.label = classic_reminder.label;
         self.identifier = classic_reminder.identifier;
     }

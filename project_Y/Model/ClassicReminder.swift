@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Reminder_Classic {
+struct ClassicReminder {
     
     let label:String;
     let identifier: UUID;

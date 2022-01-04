@@ -28,7 +28,6 @@ struct ClassicReminderView: View {
         Background {
             VStack {
                 TextField("Label", text: $label)
-                    .border(.secondary)
                 DatePicker("", selection: $pickedDate, displayedComponents: .hourAndMinute)
                     .onChange(of: pickedDate, perform: { value in
                         timeString = notificationsManager.formatTime(date: pickedDate)
@@ -113,6 +112,7 @@ struct Background<Content: View>: View {
         Color.ui.background
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         .overlay(content)
+        .ignoresSafeArea()
     }
 }
 

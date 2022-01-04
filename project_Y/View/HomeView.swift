@@ -10,7 +10,7 @@ import UserNotifications
 
 struct HomeView: View {
     
-    // Creating global object across evert view for helping with notification creation
+    // Creating global object across every view for helping with notification
     @StateObject var notificationsManager = NotificationsManager()
     
     var body: some View {
@@ -33,8 +33,8 @@ struct HomeView: View {
                 }
             }
         }.onAppear {
-            notificationsManager.requestAuthorization { granted in }
-        }.environmentObject(notificationsManager) // Passing global object to navigation view
+            notificationsManager.requestAuthorization { granted in } // Request init authorization for notifications
+        }.environmentObject(notificationsManager) // Passing notifications manager to navigation view
     }
 }
 

@@ -77,7 +77,7 @@ class NotificationsManager: ObservableObject {
         var timeFormatter : DateFormatter {
             let formatter = DateFormatter()
             formatter.timeStyle = .short
-            formatter.locale = Locale(identifier: "en_GB") // your locale here
+            formatter.locale = Locale.current
             return formatter
         }
         
